@@ -1,5 +1,5 @@
 <?php
-$config['db_dsnw'] = 'mysql://'.$_ENV['DB_USER'].':'.$_ENV['DB_PWD'].'@'.$_ENV['DB_HOST'].':'.$_ENV['DB_PORT'].'/'.$_ENV['DB_NAME'];
+$config['db_dsnw'] = 'mysql://'.$_ENV['DB_USER'].':'.$_ENV['DB_PWD'].'@'.$_ENV['DB_PORT_3306_TCP_ADDR'].':'.$_ENV['DB_PORT_3306_TCP_PORT'].'/'.$_ENV['DB_NAME'];
 $config['default_host'] = 'tls://'.$_ENV['MAIL_HOST'];
 $config['smtp_server'] = 'tls://'.$_ENV['MAIL_HOST'];
 $config['smtp_port'] = 587;

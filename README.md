@@ -29,3 +29,8 @@ If you do not want to set the environment variables you can supply your own conf
 ```docker run -v {path to your local config.inc.php}:/var/www/html/config/config.inc.php -d gadroc/roundcube```
 
 Using a custom config file allows for using additional plugins and other features.
+
+## Security Notes
+Be aware this packages does not contain any SSL support.  It is expected that you will have a SSL terminating reverse proxy in front of the container.  If you deploy this container and expose it directly over HTTP, your loging credentials will go out over the internet in clear text.
+
+Be aware that if you use container linking to supply database connectivity that all environment variables in your database container will be exposed in this container as well.  If you stood up your database container using an environment variable setting your root password and did not change it, this will expose you actual root database password as an environment variable in this PHP container.  Any vulenrabilities which may expose environment variables will give access to your root database password.  Please use container linking with caution.

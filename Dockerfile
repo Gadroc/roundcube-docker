@@ -13,7 +13,6 @@ RUN . /etc/apache2/envvars && \
     tar xf roundcubemail.tar.gz -C /var/www/html --strip-components 1 && \
     rm roundcubemail.tar.gz && \
     rm -rf /var/www/html/installer && \
-    rm /var/www/html/Dockerfile && \
     chown -R root:www-data /var/www/html && \
     chmod g+w /var/www/html/logs /var/www/html/temp && \
     chown -R ${APACHE_RUN_USER}:${APACHE_RUN_GROUP} /var/www/html/temp /var/www/html/logs && \

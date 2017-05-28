@@ -9,7 +9,7 @@ RUN . /etc/apache2/envvars && \
     apt-get update && \
     apt-get install -y  $PACKAGES $BUILD_PACKAGES && \
     docker-php-ext-install pdo_mysql mcrypt mbstring intl exif zip enchant && \
-    wget "https://downloads.sourceforge.net/project/roundcubemail/roundcubemail/1.1.3/roundcubemail-1.1.3-complete.tar.gz" -O roundcubemail.tar.gz && \
+    wget "https://github.com/roundcube/roundcubemail/releases/download/1.1.9/roundcubemail-1.1.9.tar.gz" -O roundcubemail.tar.gz && \
     tar xf roundcubemail.tar.gz -C /var/www/html --strip-components 1 && \
     rm roundcubemail.tar.gz && \
     rm -rf /var/www/html/installer && \

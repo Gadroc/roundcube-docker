@@ -3,7 +3,7 @@ FROM php:7.2-apache
 EXPOSE 80
 
 ENV PACKAGES="aspell aspell-en enchant libicu52 libmcrypt4 mysql-client"
-ENV BUILD_PACKAGES="libenchant-dev libicu-dev libmysqlclient-dev libmysqlclient-dev libmcrypt-dev wget"
+ENV BUILD_PACKAGES="libenchant-dev libicu-dev default-libmysqlclient-dev libmcrypt-dev wget"
 
 RUN . /etc/apache2/envvars && \
     apt-get update && \

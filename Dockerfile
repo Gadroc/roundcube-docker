@@ -2,14 +2,14 @@ FROM php:7.2-apache
 
 EXPOSE 80
 
-ENV PACKAGES="aspell aspell-en enchant libicu52 libmcrypt4 mysql-client"
-ENV BUILD_PACKAGES="libenchant-dev libicu-dev default-libmysqlclient-dev libmcrypt-dev wget"
+ENV PACKAGES="aspell aspell-en enchant mysql-client"
+ENV BUILD_PACKAGES="libenchant-dev libicu-dev default-libmysqlclient-dev wget"
 
 RUN . /etc/apache2/envvars && \
     apt-get update && \
     apt-get install -y  $PACKAGES $BUILD_PACKAGES && \
-    docker-php-ext-install pdo_mysql mcrypt mbstring intl exif zip enchant && \
-    wget "https://github.com/roundcube/roundcubemail/releases/download/1.3.6/roundcubemail-1.3.6.tar.gz" -O roundcubemail.tar.gz && \
+    docker-php-ext-install pdo_mysql mbstring intl exif zip enchant && \
+    wget "https://github.com/roundcube/roundcubemail/releases/download/1.3.8/roundcubemail-1.3.8.tar.gz" -O roundcubemail.tar.gz && \
     tar xf roundcubemail.tar.gz -C /var/www/html --strip-components 1 && \
     rm roundcubemail.tar.gz && \
     rm -rf /var/www/html/installer && \
